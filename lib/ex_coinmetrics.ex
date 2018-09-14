@@ -1,18 +1,24 @@
 defmodule ExCoinmetrics do
+  use Tesla
+
   @moduledoc """
-  Documentation for ExCoinmetrics.
+  ExCoinmetrics main module for Coinmetrics API
   """
 
   @doc """
-  Hello world.
+  Get supported assets
 
   ## Examples
 
-      iex> ExCoinmetrics.hello()
-      :world
+      iex> {:ok, tesla_env} = ExCoinmetrics.get_supported_assets()
+      iex> "btc" in tesla_env.body
+      true
 
   """
-  def hello do
-    :world
+  plug Tesla.Middleware.BaseUrl, "https://coinmetrics.io/api/v1"
+  plug Tesla.Middleware.JSON
+
+  def get_supported_assets() do
+    get("/get_supported_assets")
   end
 end
