@@ -26,7 +26,9 @@ defmodule ExCoinmetrics.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       {:tesla, "~> 1.0.0"},
       {:jason, ">= 1.0.0"},
-      {:hackney, "~> 1.10"}
+      {:hackney, "~> 1.10"},
+      {:csv, "~> 2.0"},
+      {:nimble_csv, "~> 0.4"}
     ]
   end
 end
